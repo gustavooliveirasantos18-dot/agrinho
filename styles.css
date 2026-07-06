@@ -1,0 +1,295 @@
+/* ==========================================
+   AGRO FORTE - Farm Disaster Game
+   Estilos Globais
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #1a1a1a;
+    color: #fff;
+    overflow: hidden;
+}
+
+#game-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: relative;
+}
+
+#canvas {
+    flex: 1;
+    display: block;
+}
+
+/* ==========================================
+   HUD - Head-Up Display
+   ========================================== */
+
+#hud {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    max-width: 300px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #90EE90;
+    border-radius: 8px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+/* Painel de Recursos */
+.resource-panel {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #90EE90;
+    padding-bottom: 15px;
+}
+
+.resource {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.resource .label {
+    font-weight: bold;
+    color: #90EE90;
+}
+
+.resource .value {
+    background: rgba(144, 238, 144, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #00ff00;
+    font-weight: bold;
+}
+
+/* Painel de Ações */
+.action-panel {
+    margin-bottom: 15px;
+}
+
+.action-panel h3 {
+    color: #90EE90;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    background: linear-gradient(135deg, #1e90ff, #00bfff);
+    color: white;
+    border: 2px solid #90EE90;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #00bfff, #1e90ff);
+    box-shadow: 0 0 10px #90EE90;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Seletor de Culturas */
+.crop-selector,
+.defense-selector {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #FFD700;
+    border-radius: 4px;
+    padding: 12px;
+    margin-top: 10px;
+}
+
+.crop-selector h3,
+.defense-selector h3 {
+    color: #FFD700;
+    font-size: 12px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.crop-btn,
+.defense-btn {
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0;
+    background: rgba(255, 215, 0, 0.1);
+    color: #FFD700;
+    border: 1px solid #FFD700;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 11px;
+    transition: all 0.2s ease;
+}
+
+.crop-btn:hover,
+.defense-btn:hover {
+    background: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 8px #FFD700;
+}
+
+/* Info do Talhão */
+.plot-info {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #87CEEB;
+    border-radius: 4px;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 11px;
+}
+
+.plot-info h3 {
+    color: #87CEEB;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+#info-content {
+    color: #87CEEB;
+    line-height: 1.6;
+}
+
+/* Alertas */
+.alerts {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    max-width: 300px;
+    z-index: 11;
+}
+
+.alert {
+    background: rgba(0, 0, 0, 0.9);
+    border-left: 4px solid;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    animation: slideIn 0.3s ease;
+}
+
+.alert.warning {
+    border-color: #FF6347;
+    background: rgba(255, 99, 71, 0.1);
+    color: #FF6347;
+}
+
+.alert.success {
+    border-color: #00FF00;
+    background: rgba(0, 255, 0, 0.1);
+    color: #00FF00;
+}
+
+.alert.info {
+    border-color: #87CEEB;
+    background: rgba(135, 206, 235, 0.1);
+    color: #87CEEB;
+}
+
+.alert.danger {
+    border-color: #FF1493;
+    background: rgba(255, 20, 147, 0.1);
+    color: #FF1493;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   Painel de Estatísticas
+   ========================================== */
+
+.stats-panel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #FFB6C1;
+    border-radius: 8px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    min-width: 150px;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.stat label {
+    font-weight: bold;
+    color: #FFB6C1;
+    margin-right: 10px;
+}
+
+.stat span {
+    background: rgba(255, 182, 193, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #FFB6C1;
+}
+
+/* ==========================================
+   Estados Ocultos
+   ========================================== */
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================
+   Responsividade
+   ========================================== */
+
+@media (max-width: 768px) {
+    #hud {
+        max-width: 250px;
+        font-size: 12px;
+    }
+
+    .btn {
+        padding: 8px;
+        font-size: 11px;
+    }
+
+    .stats-panel {
+        min-width: 120px;
+        padding: 10px;
+    }
+}
