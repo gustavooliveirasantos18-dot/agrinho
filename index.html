@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌾 Agro Forte - Farm Disaster Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Canvas para renderização 3D -->
+        <canvas id="canvas"></canvas>
+
+        <!-- HUD (Head-Up Display) -->
+        <div id="hud">
+            <!-- Recursos -->
+            <div class="resource-panel">
+                <div class="resource">
+                    <span class="label">💰 Dinheiro:</span>
+                    <span id="money" class="value">5000</span>
+                </div>
+                <div class="resource">
+                    <span class="label">🌱 Sementes:</span>
+                    <span id="seeds" class="value">50</span>
+                </div>
+                <div class="resource">
+                    <span class="label">💧 Água:</span>
+                    <span id="water" class="value">100</span>
+                </div>
+            </div>
+
+            <!-- Menu de ações -->
+            <div class="action-panel">
+                <h3>Ações</h3>
+                <button id="btn-plant" class="btn">🌱 Plantar</button>
+                <button id="btn-water" class="btn">💧 Regar</button>
+                <button id="btn-harvest" class="btn">✂️ Colher</button>
+                <button id="btn-build-defense" class="btn">🛡️ Construir Defesa</button>
+            </div>
+
+            <!-- Seleção de cultura -->
+            <div id="crop-selector" class="crop-selector hidden">
+                <h3>Escolha a Cultura</h3>
+                <button class="crop-btn" data-crop="corn">🌽 Milho</button>
+                <button class="crop-btn" data-crop="wheat">🌾 Trigo</button>
+                <button class="crop-btn" data-crop="soybean">🟫 Soja</button>
+            </div>
+
+            <!-- Seleção de defesa -->
+            <div id="defense-selector" class="defense-selector hidden">
+                <h3>Tipo de Defesa</h3>
+                <button class="defense-btn" data-defense="lightning">⚡ Pára-raios (R$500)</button>
+                <button class="defense-btn" data-defense="dam">🌊 Dique (R$800)</button>
+                <button class="defense-btn" data-defense="irrigation">💧 Sistema Irrigação (R$600)</button>
+                <button class="defense-btn" data-defense="greenhouse">🏠 Estufa (R$700)</button>
+                <button class="defense-btn" data-defense="pesticide">🧪 Pesticida (R$400)</button>
+            </div>
+
+            <!-- Info do talhão selecionado -->
+            <div id="plot-info" class="plot-info hidden">
+                <h3>Informações do Talhão</h3>
+                <div id="info-content"></div>
+            </div>
+
+            <!-- Alertas -->
+            <div id="alerts" class="alerts"></div>
+        </div>
+
+        <!-- Estatísticas -->
+        <div id="stats-panel" class="stats-panel">
+            <div class="stat">
+                <label>Dia:</label>
+                <span id="day">1</span>
+            </div>
+            <div class="stat">
+                <label>Estação:</label>
+                <span id="season">Primavera</span>
+            </div>
+            <div class="stat">
+                <label>Talhões:</label>
+                <span id="plots">0/100</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
